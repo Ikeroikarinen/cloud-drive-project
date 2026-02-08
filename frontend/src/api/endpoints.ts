@@ -8,7 +8,6 @@ export const authApi = {
       body: { username, email, password },
     }),
 
-  // backend odottaa kenttää "login" (username TAI email)
   login: (login: string, password: string) =>
     requestJson<AuthResponse>("/api/auth/login", {
       method: "POST",
@@ -17,7 +16,6 @@ export const authApi = {
 };
 
 export const meApi = {
-  // GET /api/me (protected)
   get: (token: string) => requestJson<{ ok: boolean; userId: string }>("/api/me", { token }),
 };
 
